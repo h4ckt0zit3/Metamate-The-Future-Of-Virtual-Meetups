@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="MetaMates – The Future of Virtual Meetups. Experience emotion-aware digital avatars, immersive collaboration, and secure metaverse experiences powered by AI and blockchain." />
+    <meta name="keywords"
+        content="MetaMates, metaverse, virtual meetups, AI avatars, emotion recognition, blockchain, VR, AR, collaboration" />
+    <meta property="og:title" content="MetaMates – The Future of Virtual Meetups" />
+    <meta property="og:description"
+        content="Emotion-aware digital avatars. Immersive collaboration. Secure metaverse experiences." />
+    <title>MetaMates – The Future of Virtual Meetups</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Meta<span class="logo-accent">Mates</span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#the-future" class="nav-link">The Future</a></li>
+            </ul>
+            <a href="#hero" class="nav-cta" id="navCta">Enter Metaverse</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="hero-section">
+        <!-- Three.js canvas fills here -->
+        <canvas id="heroCanvas"></canvas>
+
+        <!-- Floating grid overlay -->
+        <div class="grid-overlay"></div>
+
+        <!-- Scan line effect -->
+        <div class="scanlines"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                IEEE Research Prototype 2026
+            </div>
+
+            <h1 class="hero-title">
+                Step Into the<br />
+                <span class="gradient-text">Future of</span><br />
+                <span class="title-outline">Virtual Meetups</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Emotion-aware digital avatars. Immersive collaboration.<br />
+                Secure metaverse experiences powered by <span class="highlight-text">AI & Blockchain</span>.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn-primary" id="enterMetaverse">
+                    <span class="btn-icon">⬡</span>
+                    Enter the Metaverse
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="#features" class="btn-secondary" id="exploreFeatures">
+                    <span>Explore Features</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+
+            <!-- Floating stat cards -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number">99.2%</span>
+                    <span class="stat-label">Emotion Accuracy</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number">256-bit</span>
+                    <span class="stat-label">Blockchain Security</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number">&lt;20ms</span>
+                    <span class="stat-label">Real-time Latency</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to Explore</span>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// ABOUT THE PROJECT</span>
+                <h2 class="section-title">What is <span class="gradient-text">MetaMates?</span></h2>
+                <p class="section-subtitle">
+                    MetaMates is a next-generation virtual collaboration platform that merges artificial intelligence,
+                    immersive extended reality, and decentralized blockchain technology to redefine how humans
+                    connect, communicate, and collaborate in digital spaces.
+                </p>
+            </div>
+
+            <div class="about-cards">
+                <!-- Card 1 -->
+                <div class="glass-card reveal" id="card-avatar">
+                    <div class="card-glow card-glow-blue"></div>
+                    <div class="card-icon">
+                        <div class="icon-ring">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="20" r="10" stroke="#00d4ff" stroke-width="1.5" />
+                                <path d="M10 50c0-11 8.954-20 20-20s20 8.954 20 20" stroke="#00d4ff" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <circle cx="30" cy="20" r="5" fill="#00d4ff" fill-opacity="0.3" />
+                                <path d="M42 8 L52 4 L50 14" stroke="#7b2fff" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <circle cx="49" cy="7" r="3" fill="#7b2fff" fill-opacity="0.5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="card-title">AI Avatar Generation</h3>
+                    <p class="card-desc">Create hyper-realistic digital twins powered by generative AI. Your avatar
+                        mirrors your expressions, gestures, and personality in real-time using deep learning models.</p>
+                    <div class="card-tag">Neural Networks · GAN · Deep Learning</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card reveal" id="card-emotion">
+                    <div class="card-glow card-glow-violet"></div>
+                    <div class="card-icon">
+                        <div class="icon-ring">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="8" width="44" height="34" rx="4" stroke="#a855f7" stroke-width="1.5" />
+                                <circle cx="22" cy="22" r="4" stroke="#a855f7" stroke-width="1.5" />
+                                <circle cx="38" cy="22" r="4" stroke="#a855f7" stroke-width="1.5" />
+                                <path d="M20 30 Q30 38 40 30" stroke="#a855f7" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <path d="M15 52 L30 44 L45 52" stroke="#a855f7" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <!-- face landmarks -->
+                                <circle cx="18" cy="20" r="1" fill="#a855f7" />
+                                <circle cx="26" cy="18" r="1" fill="#a855f7" />
+                                <circle cx="34" cy="18" r="1" fill="#a855f7" />
+                                <circle cx="42" cy="20" r="1" fill="#a855f7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Emotion Recognition</h3>
+                    <p class="card-desc">Advanced facial landmark detection and micro-expression analysis maps your real
+                        emotions onto your avatar in milliseconds, creating truly authentic human connections.</p>
+                    <div class="card-tag">Computer Vision · CNN · FER Models</div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card reveal" id="card-spaces">
+                    <div class="card-glow card-glow-cyan"></div>
+                    <div class="card-icon">
+                        <div class="icon-ring">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 5 L55 20 L55 45 L30 55 L5 45 L5 20 Z" stroke="#06b6d4"
+                                    stroke-width="1.5" />
+                                <path d="M30 5 L30 55" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="3 3" />
+                                <path d="M5 20 L55 20" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="3 3" />
+                                <path d="M5 45 L55 45" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="3 3" />
+                                <circle cx="30" cy="30" r="6" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4"
+                                    stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Virtual Meeting Spaces</h3>
+                    <p class="card-desc">Immersive 3D environments designed for collaboration — from boardrooms to
+                        creative studios. AR/VR compatible spaces that feel as real as being there in person.</p>
+                    <div class="card-tag">WebXR · Three.js · Spatial Audio</div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card reveal" id="card-blockchain">
+                    <div class="card-glow card-glow-green"></div>
+                    <div class="card-icon">
+                        <div class="icon-ring">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="22" width="16" height="16" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                                <rect x="36" y="22" width="16" height="16" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                                <rect x="22" y="8" width="16" height="16" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                                <rect x="22" y="36" width="16" height="16" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                                <path d="M24 30 L36 30" stroke="#10d9a0" stroke-width="1.5" />
+                                <path d="M30 24 L30 36" stroke="#10d9a0" stroke-width="1.5" />
+                                <circle cx="30" cy="30" r="2" fill="#10d9a0" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Blockchain Security</h3>
+                    <p class="card-desc">Every session, identity, and interaction is secured on a decentralized ledger.
+                        Zero-knowledge proofs protect your privacy while ensuring tamper-proof authenticity.</p>
+                    <div class="card-tag">Zero-Knowledge Proofs · DID · Web3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section id="how-it-works" class="hiw-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// PROCESS FLOW</span>
+                <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+                <p class="section-subtitle">From login to seamless collaboration in five intelligent steps</p>
+            </div>
+
+            <!-- Process overview bar -->
+            <div class="hiw-overview reveal">
+                <div class="hiw-ov-item">
+                    <span class="hiw-ov-num">5</span>
+                    <span class="hiw-ov-lbl">Intelligent Steps</span>
+                </div>
+                <div class="hiw-ov-sep"></div>
+                <div class="hiw-ov-item">
+                    <span class="hiw-ov-num">&lt;3s</span>
+                    <span class="hiw-ov-lbl">Avatar Generation</span>
+                </div>
+                <div class="hiw-ov-sep"></div>
+                <div class="hiw-ov-item">
+                    <span class="hiw-ov-num">60fps</span>
+                    <span class="hiw-ov-lbl">Emotion Tracking</span>
+                </div>
+                <div class="hiw-ov-sep"></div>
+                <div class="hiw-ov-item">
+                    <span class="hiw-ov-num">E2E</span>
+                    <span class="hiw-ov-lbl">Encrypted Sessions</span>
+                </div>
+                <div class="hiw-ov-sep"></div>
+                <div class="hiw-ov-item">
+                    <span class="hiw-ov-num">0</span>
+                    <span class="hiw-ov-lbl">Data Breaches</span>
+                </div>
+            </div>
+
+            <div class="timeline-wrapper">
+
+                <!-- Step 1 -->
+                <div class="timeline-step reveal" id="step-1">
+                    <div class="step-number">01</div>
+                    <div class="step-connector"></div>
+                    <div class="step-content">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 36c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor"
+                                        stroke-width="1.5" stroke-linecap="round" />
+                                    <path d="M28 8l4-2-2 4" stroke="currentColor" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-body">
+                            <h3 class="step-title">Login &amp; Identity Verification</h3>
+                            <p class="step-desc">MetaMates eliminates traditional passwords entirely. Users authenticate
+                                via <strong>biometric scanning</strong> (face ID or fingerprint) combined with a
+                                <strong>Decentralized Identifier (DID)</strong> stored on the Ethereum blockchain. A
+                                zero-knowledge proof validates your identity without ever transmitting personal data.
+                                Your cryptographic key is held only by your device — not our servers.
+                            </p>
+                            <div class="step-details">
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🔐</span>
+                                    <div>
+                                        <span class="sdi-title">DID Authentication</span>
+                                        <span class="sdi-desc">W3C-compliant decentralized identity standard ensures
+                                            tamper-proof login on every session.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🧬</span>
+                                    <div>
+                                        <span class="sdi-title">Biometric Liveness Check</span>
+                                        <span class="sdi-desc">Anti-spoofing AI verifies you're a real person, not a
+                                            photo or recorded video.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">⚡</span>
+                                    <div>
+                                        <span class="sdi-title">Sub-second Auth</span>
+                                        <span class="sdi-desc">Full identity verification completes in under 800ms via
+                                            optimized ZK-SNARK circuits.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-tech-bar">
+                                <span class="stb-label">Tech Stack:</span>
+                                <span class="step-tag">Ethereum DIDs</span>
+                                <span class="step-tag">ZK-SNARKs</span>
+                                <span class="step-tag">WebAuthn</span>
+                                <span class="step-tag">FaceID API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step reveal" id="step-2">
+                    <div class="step-number">02</div>
+                    <div class="step-connector"></div>
+                    <div class="step-content">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"
+                                        stroke-dasharray="4 2" />
+                                    <circle cx="20" cy="20" r="7" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="20" cy="20" r="3" fill="currentColor" fill-opacity="0.5" />
+                                    <path d="M30 10 L36 6" stroke="currentColor" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                    <circle cx="36" cy="5" r="2" fill="currentColor" opacity="0.7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-body">
+                            <h3 class="step-title">AI Avatar Creation</h3>
+                            <p class="step-desc">A single webcam frame is enough. Our <strong>Generative Adversarial
+                                    Network (GAN)</strong> reconstructs a fully rigged, photorealistic 3D avatar in
+                                under 3 seconds. The avatar captures your facial geometry, skin texture, and
+                                micro-features. You can then customize attire, accessories, and environment style with
+                                an intuitive real-time editor — all changes preview instantly inside the 3D viewport.
+                            </p>
+                            <div class="step-details">
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🤖</span>
+                                    <div>
+                                        <span class="sdi-title">GAN-Powered Synthesis</span>
+                                        <span class="sdi-desc">StyleGAN3 backbone trained on 10M+ facial datasets for
+                                            photorealistic output across all ethnicities.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🎨</span>
+                                    <div>
+                                        <span class="sdi-title">Real-time Customization</span>
+                                        <span class="sdi-desc">Adjust 200+ parameters including clothing, hair, skin
+                                            tone, and accessories with GPU-accelerated preview.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">⛓️</span>
+                                    <div>
+                                        <span class="sdi-title">Avatar NFT Ownership</span>
+                                        <span class="sdi-desc">Your avatar is minted as an ERC-721 NFT — you own it
+                                            fully and can port it across compatible metaverse platforms.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-tech-bar">
+                                <span class="stb-label">Tech Stack:</span>
+                                <span class="step-tag st-violet">StyleGAN3</span>
+                                <span class="step-tag st-violet">Three.js</span>
+                                <span class="step-tag st-violet">GLTF/GLB</span>
+                                <span class="step-tag st-violet">ERC-721</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step reveal" id="step-3">
+                    <div class="step-number">03</div>
+                    <div class="step-connector"></div>
+                    <div class="step-content">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor"
+                                        stroke-width="1.5" />
+                                    <circle cx="14" cy="18" r="3" stroke="currentColor" stroke-width="1.2" />
+                                    <circle cx="26" cy="18" r="3" stroke="currentColor" stroke-width="1.2" />
+                                    <path d="M12 24q8 6 16 0" stroke="currentColor" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                    <circle cx="10" cy="15" r="1" fill="currentColor" />
+                                    <circle cx="18" cy="13" r="1" fill="currentColor" />
+                                    <circle cx="22" cy="13" r="1" fill="currentColor" />
+                                    <circle cx="30" cy="15" r="1" fill="currentColor" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-body">
+                            <h3 class="step-title">Real-Time Emotion Detection</h3>
+                            <p class="step-desc">Our proprietary <strong>Facial Emotion Recognition (FER)</strong>
+                                module runs entirely in the browser via TensorFlow.js. It tracks <strong>68 facial
+                                    landmarks</strong> per frame at 60fps and classifies 7 primary emotions (Happy, Sad,
+                                Angry, Surprised, Disgusted, Fearful, Neutral) with 99.2% accuracy. The detected emotion
+                                is simultaneously mapped to the avatar's facial rig and used to adapt room lighting,
+                                ambient sound, and UI coloring.</p>
+                            <div class="step-details">
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">👁️</span>
+                                    <div>
+                                        <span class="sdi-title">68 Landmark Tracking</span>
+                                        <span class="sdi-desc">MediaPipe FaceMesh detects jaw, brow, eye, nose, and lip
+                                            landmarks — 68 points at 60fps with sub-16ms inference.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🧠</span>
+                                    <div>
+                                        <span class="sdi-title">CNN Emotion Classifier</span>
+                                        <span class="sdi-desc">Custom 12-layer CNN fine-tuned on AffectNet and FER2013
+                                            datasets. Runs fully client-side — no camera data is ever
+                                            transmitted.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🌈</span>
+                                    <div>
+                                        <span class="sdi-title">Adaptive Environment</span>
+                                        <span class="sdi-desc">Room lighting, background music, and particle effects
+                                            dynamically respond to the group's collective emotional state in
+                                            real-time.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-tech-bar">
+                                <span class="stb-label">Tech Stack:</span>
+                                <span class="step-tag st-cyan">TensorFlow.js</span>
+                                <span class="step-tag st-cyan">MediaPipe</span>
+                                <span class="step-tag st-cyan">WebGL</span>
+                                <span class="step-tag st-cyan">AffectNet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step reveal" id="step-4">
+                    <div class="step-number">04</div>
+                    <div class="step-connector"></div>
+                    <div class="step-content">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <path d="M20 4 L36 13 L36 31 L20 36 L4 31 L4 13 Z" stroke="currentColor"
+                                        stroke-width="1.5" />
+                                    <path d="M20 4 L20 36" stroke="currentColor" stroke-width="0.8"
+                                        stroke-dasharray="2 2" />
+                                    <path d="M4 13 L36 13" stroke="currentColor" stroke-width="0.8"
+                                        stroke-dasharray="2 2" />
+                                    <circle cx="20" cy="22" r="5" fill="currentColor" fill-opacity="0.2"
+                                        stroke="currentColor" stroke-width="1" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-body">
+                            <h3 class="step-title">Enter the Virtual Room</h3>
+                            <p class="step-desc">Users teleport into a fully rendered <strong>WebGL/WebXR
+                                    environment</strong> that runs directly in the browser — no downloads, no installs.
+                                Choose from 12+ curated room templates: executive boardrooms, open-plan creative
+                                studios, outdoor campfire circles, and futuristic spaceship bridges. Each room supports
+                                <strong>up to 50 concurrent avatars</strong> with positional spatial audio that
+                                realistically attenuates based on distance and direction.
+                            </p>
+                            <div class="step-details">
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🌐</span>
+                                    <div>
+                                        <span class="sdi-title">12+ Room Templates</span>
+                                        <span class="sdi-desc">Professionally designed 3D environments with PBR
+                                            materials, dynamic lighting rigs, and interactive props.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🎧</span>
+                                    <div>
+                                        <span class="sdi-title">Spatial Audio Engine</span>
+                                        <span class="sdi-desc">Web Audio API with HRTF spatialization makes voices sound
+                                            like they're coming from the right direction and distance in 3D
+                                            space.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🥽</span>
+                                    <div>
+                                        <span class="sdi-title">VR / AR Mode</span>
+                                        <span class="sdi-desc">One-click WebXR transition for Meta Quest 3, Apple Vision
+                                            Pro, and HoloLens 2. Desktop fallback with mouse-look navigation.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-tech-bar">
+                                <span class="stb-label">Tech Stack:</span>
+                                <span class="step-tag st-green">Three.js</span>
+                                <span class="step-tag st-green">WebXR API</span>
+                                <span class="step-tag st-green">Web Audio API</span>
+                                <span class="step-tag st-green">HRTF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step reveal" id="step-5">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <circle cx="12" cy="20" r="5" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="28" cy="12" r="5" stroke="currentColor" stroke-width="1.5" />
+                                    <circle cx="28" cy="28" r="5" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M17 20 L23 14" stroke="currentColor" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                    <path d="M17 20 L23 26" stroke="currentColor" stroke-width="1.2"
+                                        stroke-linecap="round" />
+                                    <path d="M20 8 Q8 2 4 10" stroke="currentColor" stroke-width="1"
+                                        stroke-dasharray="2 2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="step-body">
+                            <h3 class="step-title">Collaborate Securely</h3>
+                            <p class="step-desc">Everything inside a MetaMates session is protected by
+                                <strong>end-to-end encryption (E2EE)</strong> using the Signal Protocol. Screen shares,
+                                shared whiteboards, file transfers, and voice channels are all encrypted. Every event —
+                                joins, leaves, file uploads, chat messages — is logged as an immutable transaction on
+                                the blockchain, creating a <strong>tamper-proof audit trail</strong> that can be
+                                verified by all participants at any time.
+                            </p>
+                            <div class="step-details">
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🛡️</span>
+                                    <div>
+                                        <span class="sdi-title">Signal Protocol E2EE</span>
+                                        <span class="sdi-desc">Double-ratchet algorithm ensures perfect forward secrecy.
+                                            Compromising one session key never exposes past or future messages.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">📋</span>
+                                    <div>
+                                        <span class="sdi-title">Shared Whiteboard &amp; Files</span>
+                                        <span class="sdi-desc">Infinite canvas whiteboard with real-time collaborative
+                                            drawing. Files are uploaded to IPFS for decentralized, content-addressed
+                                            storage.</span>
+                                    </div>
+                                </div>
+                                <div class="step-detail-item">
+                                    <span class="sdi-icon">🔗</span>
+                                    <div>
+                                        <span class="sdi-title">Immutable Blockchain Log</span>
+                                        <span class="sdi-desc">A Solidity smart contract records every verifiable event.
+                                            Meeting minutes can be cryptographically proven to be unaltered
+                                            forever.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-tech-bar">
+                                <span class="stb-label">Tech Stack:</span>
+                                <span class="step-tag st-pink">Signal Protocol</span>
+                                <span class="step-tag st-pink">Solidity</span>
+                                <span class="step-tag st-pink">IPFS</span>
+                                <span class="step-tag st-pink">WebRTC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// CORE FEATURES</span>
+                <h2 class="section-title">Built for the <span class="gradient-text">Future</span></h2>
+                <p class="section-subtitle">Enterprise-grade capabilities wrapped in an intuitive, beautiful interface
+                </p>
+            </div>
+
+            <!-- ── Key capability bar ── -->
+            <div class="feat-overview reveal">
+                <div class="fo-item"><span class="fo-val">&lt;20ms</span><span class="fo-lbl">Latency</span></div>
+                <div class="fo-sep"></div>
+                <div class="fo-item"><span class="fo-val">256-bit</span><span class="fo-lbl">Encryption</span></div>
+                <div class="fo-sep"></div>
+                <div class="fo-item"><span class="fo-val">99.2%</span><span class="fo-lbl">Emotion Accuracy</span></div>
+                <div class="fo-sep"></div>
+                <div class="fo-item"><span class="fo-val">1M+</span><span class="fo-lbl">Concurrent Users</span></div>
+                <div class="fo-sep"></div>
+                <div class="fo-item"><span class="fo-val">0KB</span><span class="fo-lbl">Install Required</span></div>
+            </div>
+
+            <div class="features-grid">
+
+                <!-- ① Real-Time Communication – large card -->
+                <div class="feature-card feature-large reveal" id="feat-realtime">
+                    <div class="feat-glow"></div>
+                    <div class="feat-badge">Core</div>
+                    <div class="feat-icon-wrap">
+                        <div class="feat-pulse"></div>
+                        <svg viewBox="0 0 64 64" fill="none" class="feat-icon">
+                            <circle cx="32" cy="32" r="20" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="6 3" />
+                            <circle cx="32" cy="32" r="10" stroke="#00d4ff" stroke-width="2" />
+                            <circle cx="32" cy="32" r="4" fill="#00d4ff" />
+                            <path d="M12 32 L4 32" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M52 32 L60 32" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M32 12 L32 4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M32 52 L32 60" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="feat-title">Real-Time Communication</h3>
+                    <p class="feat-desc">Ultra-low latency peer-to-peer communication powered by WebRTC. MetaMates uses
+                        a <strong>mesh topology</strong> for small groups and a selective forwarding unit (SFU) for
+                        large rooms, dynamically switching at 6+ participants to keep quality pristine. Spatial audio
+                        adjusts based on your avatar's position in the virtual space — voices realistically fade, pan,
+                        and echo as you move through the environment.</p>
+
+                    <!-- Spec panels -->
+                    <div class="feat-spec-grid">
+                        <div class="feat-spec-item">
+                            <span class="fsi-val" style="color:var(--neon-blue)">&lt;20ms</span>
+                            <span class="fsi-lbl">End-to-end latency<br><small>global median</small></span>
+                        </div>
+                        <div class="feat-spec-item">
+                            <span class="fsi-val" style="color:var(--neon-blue)">4K</span>
+                            <span class="fsi-lbl">Max video quality<br><small>AV1 codec</small></span>
+                        </div>
+                        <div class="feat-spec-item">
+                            <span class="fsi-val" style="color:var(--neon-blue)">50</span>
+                            <span class="fsi-lbl">Users per room<br><small>full HD streams</small></span>
+                        </div>
+                    </div>
+
+                    <div class="feat-detail-list">
+                        <div class="fdl-item">
+                            <span class="fdl-dot" style="background:var(--neon-blue)"></span>
+                            <span><strong>Adaptive Bitrate (ABR)</strong> — codec switches between AV1, VP9, H.264
+                                automatically based on available bandwidth, ensuring smooth video even on 2G
+                                connections</span>
+                        </div>
+                        <div class="fdl-item">
+                            <span class="fdl-dot" style="background:var(--neon-blue)"></span>
+                            <span><strong>HRTF Spatial Audio</strong> — Head Related Transfer Function convolution
+                                mimics real-world sound physics; whisper to someone right beside you, shout across a
+                                room</span>
+                        </div>
+                        <div class="fdl-item">
+                            <span class="fdl-dot" style="background:var(--neon-blue)"></span>
+                            <span><strong>Screen Share + Co-annotation</strong> — Share any window, browser tab, or full
+                                desktop at 60fps with simultaneous drawing overlay for real-time markup</span>
+                        </div>
+                        <div class="fdl-item">
+                            <span class="fdl-dot" style="background:var(--neon-blue)"></span>
+                            <span><strong>Live Caption Engine</strong> — On-device Whisper model generates real-time
+                                subtitles in 40+ languages, transcribed and saved as a session record</span>
+                        </div>
+                    </div>
+
+                    <div class="feat-tags">
+                        <span class="feat-tag">WebRTC</span>
+                        <span class="feat-tag">Spatial Audio</span>
+                        <span class="feat-tag">&lt;20ms Latency</span>
+                        <span class="feat-tag">AV1 / H.264</span>
+                        <span class="feat-tag">HRTF</span>
+                    </div>
+                </div>
+
+                <!-- ② AI Emotion Mapping -->
+                <div class="feature-card reveal" id="feat-emotion">
+                    <div class="feat-glow feat-glow-violet"></div>
+                    <div class="feat-badge feat-badge-violet">AI</div>
+                    <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                        <rect x="6" y="10" width="36" height="28" rx="4" stroke="#a855f7" stroke-width="1.5" />
+                        <circle cx="18" cy="22" r="3" stroke="#a855f7" stroke-width="1.2" />
+                        <circle cx="30" cy="22" r="3" stroke="#a855f7" stroke-width="1.2" />
+                        <path d="M16 30 Q24 36 32 30" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round" />
+                        <circle cx="14" cy="19" r="0.8" fill="#a855f7" />
+                        <circle cx="22" cy="17" r="0.8" fill="#a855f7" />
+                        <circle cx="26" cy="17" r="0.8" fill="#a855f7" />
+                        <circle cx="34" cy="19" r="0.8" fill="#a855f7" />
+                    </svg>
+                    <h3 class="feat-title">AI Emotion Mapping</h3>
+                    <p class="feat-desc">68-point facial landmark detection maps micro-expressions to your avatar in
+                        real-time. The system classifies 7 emotions with <strong>99.2% accuracy</strong> and reshapes
+                        the avatar's mouth, brow, and eye rigs frame-by-frame — 100% client-side, your camera feed never
+                        leaves your device.</p>
+                    <div class="feat-micro-stats">
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-violet)">7</span><span
+                                class="fms-l">Emotions</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-violet)">68</span><span
+                                class="fms-l">Landmarks</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-violet)">60fps</span><span
+                                class="fms-l">Inference</span></div>
+                    </div>
+                    <ul class="feat-bullet-list" style="--acc:var(--neon-violet)">
+                        <li>CNN fine-tuned on AffectNet + FER2013 (1.4M images)</li>
+                        <li>Adaptive room lighting responds to group mood</li>
+                        <li>Emotion timeline panel visible to facilitators</li>
+                        <li>Fully offline — zero data transmitted</li>
+                    </ul>
+                    <div class="feat-tags">
+                        <span class="feat-tag feat-tag-violet">CNN Model</span>
+                        <span class="feat-tag feat-tag-violet">MediaPipe</span>
+                        <span class="feat-tag feat-tag-violet">60fps</span>
+                        <span class="feat-tag feat-tag-violet">Client-Side</span>
+                    </div>
+                </div>
+
+                <!-- ③ AR/VR Compatibility -->
+                <div class="feature-card reveal" id="feat-arvr">
+                    <div class="feat-glow feat-glow-cyan"></div>
+                    <div class="feat-badge feat-badge-cyan">XR</div>
+                    <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                        <path
+                            d="M4 20 L4 28 Q4 32 8 32 L16 32 Q18 32 20 30 L22 28 L26 28 L28 30 Q30 32 32 32 L40 32 Q44 32 44 28 L44 20 Q44 16 40 16 L8 16 Q4 16 4 20Z"
+                            stroke="#06b6d4" stroke-width="1.5" />
+                        <circle cx="16" cy="24" r="4" stroke="#06b6d4" stroke-width="1.2" />
+                        <circle cx="32" cy="24" r="4" stroke="#06b6d4" stroke-width="1.2" />
+                        <path d="M24 12 L28 8" stroke="#06b6d4" stroke-width="1.2" stroke-linecap="round" />
+                    </svg>
+                    <h3 class="feat-title">AR/VR Compatibility</h3>
+                    <p class="feat-desc">Full WebXR API integration provides native immersion on every major headset.
+                        One click switches from your browser into full 6DoF VR — no app store, no side-loading. On
+                        mobile, Plane Detection enables AR mode where meeting participants appear in your physical room.
+                    </p>
+                    <div class="feat-micro-stats">
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-cyan)">6DoF</span><span
+                                class="fms-l">Tracking</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-cyan)">90Hz</span><span
+                                class="fms-l">VR Render</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-cyan)">3</span><span
+                                class="fms-l">Platforms</span></div>
+                    </div>
+                    <ul class="feat-bullet-list" style="--acc:var(--neon-cyan)">
+                        <li>Meta Quest 3 / Pro — hand tracking + passthrough</li>
+                        <li>Apple Vision Pro — EyeSight avatar projection</li>
+                        <li>HoloLens 2 — mixed reality whiteboard overlay</li>
+                        <li>Desktop fallback with full mouse-look control</li>
+                    </ul>
+                    <div class="feat-tags">
+                        <span class="feat-tag feat-tag-cyan">WebXR</span>
+                        <span class="feat-tag feat-tag-cyan">Quest Pro</span>
+                        <span class="feat-tag feat-tag-cyan">Vision Pro</span>
+                        <span class="feat-tag feat-tag-cyan">HoloLens</span>
+                    </div>
+                </div>
+
+                <!-- ④ Blockchain Identity -->
+                <div class="feature-card reveal" id="feat-blockchain">
+                    <div class="feat-glow feat-glow-green"></div>
+                    <div class="feat-badge feat-badge-green">WEB3</div>
+                    <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                        <rect x="6" y="18" width="12" height="12" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                        <rect x="30" y="18" width="12" height="12" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                        <rect x="18" y="6" width="12" height="12" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                        <rect x="18" y="30" width="12" height="12" rx="2" stroke="#10d9a0" stroke-width="1.5" />
+                        <path d="M18 24 L30 24" stroke="#10d9a0" stroke-width="1.2" />
+                        <path d="M24 18 L24 30" stroke="#10d9a0" stroke-width="1.2" />
+                        <circle cx="24" cy="24" r="2" fill="#10d9a0" />
+                    </svg>
+                    <h3 class="feat-title">Blockchain Identity</h3>
+                    <p class="feat-desc">Self-sovereign identity using W3C DID standards — no central authority stores
+                        your credentials. Zero-knowledge proofs let you prove attributes (age, affiliation, clearance)
+                        without revealing the underlying data. Every session event is signed and stored on-chain
+                        creating an immutable, verifiable meeting record.</p>
+                    <div class="feat-micro-stats">
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-green)">ZK</span><span
+                                class="fms-l">No Data Leak</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-green)">ERC-721</span><span
+                                class="fms-l">Avatar NFT</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-green)">0</span><span
+                                class="fms-l">Breaches</span></div>
+                    </div>
+                    <ul class="feat-bullet-list" style="--acc:var(--neon-green)">
+                        <li>W3C DID + Verifiable Credentials (VC) standard</li>
+                        <li>ZK-SNARK proofs — sub-800ms verification</li>
+                        <li>On-chain audit trail via Solidity smart contract</li>
+                        <li>IPFS-stored avatar + session metadata</li>
+                    </ul>
+                    <div class="feat-tags">
+                        <span class="feat-tag feat-tag-green">DID</span>
+                        <span class="feat-tag feat-tag-green">ZK Proofs</span>
+                        <span class="feat-tag feat-tag-green">Solidity</span>
+                        <span class="feat-tag feat-tag-green">IPFS</span>
+                    </div>
+                </div>
+
+                <!-- ⑤ Cloud Infrastructure – wide card -->
+                <div class="feature-card feature-wide reveal" id="feat-cloud">
+                    <div class="feat-glow"></div>
+                    <div class="feat-badge">INFRA</div>
+                    <div class="feat-inner-wide">
+                        <div>
+                            <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                                <path
+                                    d="M36 34 Q42 34 42 28 Q42 22 36 22 Q35 16 28 16 Q22 10 16 14 Q10 12 8 18 Q4 18 4 24 Q4 30 10 30 L36 30"
+                                    stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M18 30 L18 42" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" />
+                                <path d="M24 30 L24 42" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" />
+                                <path d="M30 30 L30 42" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" />
+                                <path d="M14 42 L34 42" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            <h3 class="feat-title">Cloud-Native Infrastructure</h3>
+                            <p class="feat-desc">Auto-scaling microservices on Kubernetes ensure zero downtime
+                                regardless of traffic spikes. A global <strong>edge network across 28 PoPs</strong>
+                                brings rendering compute to within 15ms of every user. The platform is built on an
+                                event-driven architecture with Kafka for real-time state synchronisation across all room
+                                participants, surviving node failures without a perceptible hiccup.</p>
+                            <ul class="feat-bullet-list" style="--acc:var(--neon-blue); margin-top:14px;">
+                                <li><strong>Kubernetes HPA</strong> — horizontal pod autoscaling from 2→200 replicas in
+                                    under 30 seconds during load surges</li>
+                                <li><strong>28 Edge PoPs</strong> — WebRTC TURN/STUN servers co-located with compute for
+                                    sub-20ms global median</li>
+                                <li><strong>Apache Kafka</strong> — event streaming backbone handles 10M+ events/sec for
+                                    room state, chat, and analytics</li>
+                                <li><strong>Grafana + OpenTelemetry</strong> — full distributed tracing, real-time
+                                    dashboards, and automated anomaly alerts</li>
+                            </ul>
+                        </div>
+                        <div class="cloud-stats">
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val">99.99%</span>
+                                <span class="cloud-stat-label">Uptime SLA</span>
+                            </div>
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val">1M+</span>
+                                <span class="cloud-stat-label">Concurrent Users</span>
+                            </div>
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val">28</span>
+                                <span class="cloud-stat-label">Edge PoPs</span>
+                            </div>
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val">30s</span>
+                                <span class="cloud-stat-label">Scale-Out Time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ⑥ Privacy-First AI – new card -->
+                <div class="feature-card reveal" id="feat-privacy">
+                    <div class="feat-glow"
+                        style="background:radial-gradient(circle at 30% 30%, rgba(240,89,218,0.3) 0%, transparent 60%)">
+                    </div>
+                    <div class="feat-badge"
+                        style="color:#f059da;border-color:rgba(240,89,218,.35);background:rgba(240,89,218,.1)">PRIVACY
+                    </div>
+                    <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                        <path d="M24 4 L40 10 L40 26 Q40 38 24 44 Q8 38 8 26 L8 10 Z" stroke="#f059da"
+                            stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M16 24 L21 29 L32 18" stroke="#f059da" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="feat-title">Privacy-First by Design</h3>
+                    <p class="feat-desc">Every AI model in MetaMates runs <strong>entirely inside your browser</strong>
+                        using WebAssembly and WebGL compute shaders. No camera frame, voice sample, or biometric data
+                        ever leaves your device — privacy isn't a setting, it's architecturally enforced.</p>
+                    <div class="feat-micro-stats">
+                        <div class="fms-item"><span class="fms-v" style="color:#f059da">0</span><span class="fms-l">Data
+                                Uploaded</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:#f059da">WASM</span><span
+                                class="fms-l">On-device AI</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:#f059da">E2EE</span><span
+                                class="fms-l">All Channels</span></div>
+                    </div>
+                    <ul class="feat-bullet-list" style="--acc:#f059da">
+                        <li>GDPR, CCPA, and HIPAA compliant by default</li>
+                        <li>No cookies, no tracking pixels, no third-party analytics</li>
+                        <li>Differential privacy in group emotion aggregates</li>
+                        <li>Optional self-hosted deployment for enterprises</li>
+                    </ul>
+                    <div class="feat-tags">
+                        <span class="feat-tag"
+                            style="border-color:rgba(240,89,218,.3);color:#f059da;background:rgba(240,89,218,.07)">GDPR</span>
+                        <span class="feat-tag"
+                            style="border-color:rgba(240,89,218,.3);color:#f059da;background:rgba(240,89,218,.07)">HIPAA</span>
+                        <span class="feat-tag"
+                            style="border-color:rgba(240,89,218,.3);color:#f059da;background:rgba(240,89,218,.07)">On-Device</span>
+                    </div>
+                </div>
+
+                <!-- ⑦ AI Meeting Assistant – new card -->
+                <div class="feature-card reveal" id="feat-assistant">
+                    <div class="feat-glow feat-glow-violet"></div>
+                    <div class="feat-badge feat-badge-violet">LLM</div>
+                    <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                        <rect x="8" y="8" width="32" height="26" rx="4" stroke="#a855f7" stroke-width="1.5" />
+                        <path d="M16 18 L32 18" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round" />
+                        <path d="M16 24 L26 24" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round" />
+                        <path d="M20 34 L24 40 L28 34" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 class="feat-title">AI Meeting Assistant</h3>
+                    <p class="feat-desc">A built-in LLM co-pilot listens to every meeting in real-time (locally
+                        processed). It generates rolling summaries, flags unresolved action items, suggests relevant
+                        documents, and nudges the facilitator when a topic has run long — all without interrupting the
+                        flow.</p>
+                    <div class="feat-micro-stats">
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-violet)">Real</span><span
+                                class="fms-l">-time Summary</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-violet)">40+</span><span
+                                class="fms-l">Languages</span></div>
+                        <div class="fms-item"><span class="fms-v" style="color:var(--neon-violet)">Local</span><span
+                                class="fms-l">LLM Model</span></div>
+                    </div>
+                    <ul class="feat-bullet-list" style="--acc:var(--neon-violet)">
+                        <li>Whisper ASR + local 7B LLaMA model — fully offline</li>
+                        <li>Auto-generated JIRA / Notion action items post-meeting</li>
+                        <li>Live translation for 40+ languages</li>
+                        <li>Engagement coach — alerts when participants go silent</li>
+                    </ul>
+                    <div class="feat-tags">
+                        <span class="feat-tag feat-tag-violet">LLaMA 3</span>
+                        <span class="feat-tag feat-tag-violet">Whisper</span>
+                        <span class="feat-tag feat-tag-violet">40+ Langs</span>
+                    </div>
+                </div>
+
+                <!-- ⑧ Real-Time Analytics – new full-width card -->
+                <div class="feature-card feature-wide reveal" id="feat-analytics">
+                    <div class="feat-glow feat-glow-cyan"></div>
+                    <div class="feat-badge feat-badge-cyan">ANALYTICS</div>
+                    <div class="feat-inner-wide">
+                        <div>
+                            <svg viewBox="0 0 48 48" fill="none" class="feat-icon-sm">
+                                <path d="M6 38 L6 22 L14 22 L14 38" stroke="#06b6d4" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <path d="M18 38 L18 14 L26 14 L26 38" stroke="#06b6d4" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <path d="M30 38 L30 20 L38 20 L38 38" stroke="#06b6d4" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <path d="M4 38 L44 38" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" />
+                                <circle cx="36" cy="10" r="3" stroke="#06b6d4" stroke-width="1.2" />
+                                <path d="M26 14 L33 11" stroke="#06b6d4" stroke-width="1" stroke-linecap="round"
+                                    stroke-dasharray="2 1.5" />
+                            </svg>
+                            <h3 class="feat-title">Real-Time Meeting Analytics</h3>
+                            <p class="feat-desc">Every MetaMates session generates a rich, privacy-preserved analytics
+                                stream. Facilitators see live dashboards showing <strong>talk-time
+                                    distribution</strong>, per-participant engagement scores, collective emotion
+                                heatmaps, and participation equity metrics — all updated at 1-second intervals.
+                                Post-meeting reports export as PDF or push directly to Notion, Confluence, or Slack.</p>
+                            <ul class="feat-bullet-list" style="--acc:var(--neon-cyan); margin-top:14px;">
+                                <li><strong>Talk-time Pie</strong> — instantly reveals who dominates and who's been
+                                    silent; nudge function for facilitators</li>
+                                <li><strong>Emotion Heatmap</strong> — 2D grid shows collective mood over the full
+                                    session timeline</li>
+                                <li><strong>Engagement Index</strong> — proprietary score combining facial activity,
+                                    vocal energy, and gesture frequency</li>
+                                <li><strong>Post-meeting Report</strong> — auto-generated PDF with transcript, action
+                                    items, emotion graph, and attendance log</li>
+                            </ul>
+                        </div>
+                        <div class="cloud-stats">
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val" style="color:var(--neon-cyan)">1s</span>
+                                <span class="cloud-stat-label">Update Rate</span>
+                            </div>
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val" style="color:var(--neon-cyan)">8+</span>
+                                <span class="cloud-stat-label">Metric Streams</span>
+                            </div>
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val" style="color:var(--neon-cyan)">PDF</span>
+                                <span class="cloud-stat-label">Auto Report</span>
+                            </div>
+                            <div class="cloud-stat">
+                                <span class="cloud-stat-val" style="color:var(--neon-cyan)">0%</span>
+                                <span class="cloud-stat-label">PII Exposed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /features-grid -->
+
+            <!-- ── Comparison table ── -->
+            <div class="feat-compare reveal">
+                <div class="fc-header">
+                    <h3>How MetaMates Compares</h3>
+                    <p>Against typical enterprise video-conferencing platforms</p>
+                </div>
+                <div class="fc-table">
+                    <div class="fc-row fc-row-head">
+                        <span class="fc-col-feat">Capability</span>
+                        <span class="fc-col-mm">MetaMates</span>
+                        <span class="fc-col-other">Typical Platforms</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">AI Avatar with real-time emotion</span>
+                        <span class="fc-col-mm fc-yes">✓ Full 3D, 60fps</span>
+                        <span class="fc-col-other fc-no">✗ Not available</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">Blockchain-secured identity (DID)</span>
+                        <span class="fc-col-mm fc-yes">✓ ZK-SNARK + W3C DID</span>
+                        <span class="fc-col-other fc-no">✗ Email/password only</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">VR / AR mode (WebXR)</span>
+                        <span class="fc-col-mm fc-yes">✓ No app install</span>
+                        <span class="fc-col-other fc-partial">⚬ Proprietary app needed</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">On-device AI (camera never uploaded)</span>
+                        <span class="fc-col-mm fc-yes">✓ 100% client-side</span>
+                        <span class="fc-col-other fc-no">✗ Server-processed</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">Real-time meeting analytics dashboard</span>
+                        <span class="fc-col-mm fc-yes">✓ Live, 1s granularity</span>
+                        <span class="fc-col-other fc-partial">⚬ Post-meeting only</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">End-to-end encryption (Signal Protocol)</span>
+                        <span class="fc-col-mm fc-yes">✓ Every channel</span>
+                        <span class="fc-col-other fc-partial">⚬ Transport only (TLS)</span>
+                    </div>
+                    <div class="fc-row">
+                        <span class="fc-col-feat">AI Meeting Assistant (offline LLM)</span>
+                        <span class="fc-col-mm fc-yes">✓ Fully local</span>
+                        <span class="fc-col-other fc-no">✗ Cloud-only / extra cost</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========== DEMO SECTION ========== -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// LIVE PREVIEW</span>
+                <h2 class="section-title">Demo <span class="gradient-text">Preview</span></h2>
+                <p class="section-subtitle">A glimpse into the MetaMates virtual collaboration interface</p>
+            </div>
+
+            <div class="demo-wrapper reveal">
+                <!-- Browser chrome -->
+                <div class="demo-browser">
+                    <div class="browser-top">
+                        <div class="browser-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="browser-url">
+                            <span class="url-lock">🔒</span>
+                            <span>metaverse.metamates.io / room / alpha-3x7</span>
+                        </div>
+                        <div class="browser-actions">
+                            <span>⋮⋮⋮</span>
+                        </div>
+                    </div>
+
+                    <!-- Main interface -->
+                    <div class="demo-interface">
+                        <!-- Top HUD bar -->
+                        <div class="hud-bar">
+                            <div class="hud-left">
+                                <div class="hud-logo">◈ MetaMates</div>
+                                <div class="room-info">
+                                    <span class="room-id">ROOM: ALPHA-3X7</span>
+                                    <span class="live-badge">● LIVE</span>
+                                </div>
+                            </div>
+                            <div class="hud-right">
+                                <div class="hud-time" id="hudTime">22:07:39</div>
+                                <div class="sec-indicator">
+                                    <span class="sec-dot"></span> SECURED
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Virtual room space -->
+                        <div class="virtual-room">
+                            <!-- Background grid -->
+                            <div class="room-grid"></div>
+
+                            <!-- Horizon line -->
+                            <div class="horizon-line"></div>
+
+                            <!-- Avatars -->
+                            <div class="avatars-row">
+                                <!-- Avatar 1 -->
+                                <div class="avatar-pod" id="avatarPod1">
+                                    <div class="avatar-bubble">
+                                        <div class="avatar-frame">
+                                            <div class="avatar-head avatar-1">
+                                                <div class="avatar-face">
+                                                    <div class="avatar-eyes">
+                                                        <div class="eye"></div>
+                                                        <div class="eye"></div>
+                                                    </div>
+                                                    <div class="avatar-mouth happy"></div>
+                                                </div>
+                                                <div class="avatar-hair hair-1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="emotion-tag emotion-happy">
+                                            <span class="emotion-emoji">😊</span> Happy
+                                        </div>
+                                        <div class="avatar-mic active">
+                                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M10 1a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                                <path d="M16 10a6 6 0 0 1-12 0H2a8 8 0 0 0 15.918 1.5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="avatar-name">Alex Chen</div>
+                                    <div class="avatar-role">Project Lead</div>
+                                </div>
+
+                                <!-- Avatar 2 (Active speaker) -->
+                                <div class="avatar-pod active-speaker" id="avatarPod2">
+                                    <div class="speaking-ring"></div>
+                                    <div class="avatar-bubble">
+                                        <div class="avatar-frame">
+                                            <div class="avatar-head avatar-2">
+                                                <div class="avatar-face">
+                                                    <div class="avatar-eyes">
+                                                        <div class="eye"></div>
+                                                        <div class="eye"></div>
+                                                    </div>
+                                                    <div class="avatar-mouth speaking"></div>
+                                                </div>
+                                                <div class="avatar-hair hair-2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="emotion-tag emotion-focused">
+                                            <span class="emotion-emoji">🎯</span> Focused
+                                        </div>
+                                        <div class="avatar-mic active speaking-mic">
+                                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M10 1a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                                <path d="M16 10a6 6 0 0 1-12 0H2a8 8 0 0 0 15.918 1.5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="avatar-name">Priya Sharma</div>
+                                    <div class="avatar-role">AI Researcher</div>
+                                </div>
+
+                                <!-- Avatar 3 -->
+                                <div class="avatar-pod" id="avatarPod3">
+                                    <div class="avatar-bubble">
+                                        <div class="avatar-frame">
+                                            <div class="avatar-head avatar-3">
+                                                <div class="avatar-face">
+                                                    <div class="avatar-eyes">
+                                                        <div class="eye"></div>
+                                                        <div class="eye"></div>
+                                                    </div>
+                                                    <div class="avatar-mouth neutral"></div>
+                                                </div>
+                                                <div class="avatar-hair hair-3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="emotion-tag emotion-calm">
+                                            <span class="emotion-emoji">😌</span> Calm
+                                        </div>
+                                        <div class="avatar-mic">
+                                            <svg viewBox="0 0 20 20" fill="currentColor" opacity="0.4">
+                                                <path d="M10 1a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                                <path d="M16 10a6 6 0 0 1-12 0H2a8 8 0 0 0 15.918 1.5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="avatar-name">Marcus Webb</div>
+                                    <div class="avatar-role">Blockchain Dev</div>
+                                </div>
+
+                                <!-- Avatar 4 -->
+                                <div class="avatar-pod" id="avatarPod4">
+                                    <div class="avatar-bubble">
+                                        <div class="avatar-frame">
+                                            <div class="avatar-head avatar-4">
+                                                <div class="avatar-face">
+                                                    <div class="avatar-eyes">
+                                                        <div class="eye"></div>
+                                                        <div class="eye"></div>
+                                                    </div>
+                                                    <div class="avatar-mouth happy"></div>
+                                                </div>
+                                                <div class="avatar-hair hair-4"></div>
+                                            </div>
+                                        </div>
+                                        <div class="emotion-tag emotion-excited">
+                                            <span class="emotion-emoji">✨</span> Excited
+                                        </div>
+                                        <div class="avatar-mic active">
+                                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M10 1a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                                <path d="M16 10a6 6 0 0 1-12 0H2a8 8 0 0 0 15.918 1.5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="avatar-name">Zara Kim</div>
+                                    <div class="avatar-role">XR Designer</div>
+                                </div>
+                            </div>
+
+                            <!-- Floating panels -->
+                            <div class="floating-panel panel-left">
+                                <div class="panel-header">Emotion Analytics</div>
+                                <div class="emotion-bars">
+                                    <div class="emo-bar-row">
+                                        <span class="emo-label">Happy</span>
+                                        <div class="emo-bar-track">
+                                            <div class="emo-bar-fill emo-happy" style="width:72%"></div>
+                                        </div>
+                                        <span class="emo-pct">72%</span>
+                                    </div>
+                                    <div class="emo-bar-row">
+                                        <span class="emo-label">Focused</span>
+                                        <div class="emo-bar-track">
+                                            <div class="emo-bar-fill emo-focused" style="width:85%"></div>
+                                        </div>
+                                        <span class="emo-pct">85%</span>
+                                    </div>
+                                    <div class="emo-bar-row">
+                                        <span class="emo-label">Calm</span>
+                                        <div class="emo-bar-track">
+                                            <div class="emo-bar-fill emo-calm" style="width:60%"></div>
+                                        </div>
+                                        <span class="emo-pct">60%</span>
+                                    </div>
+                                    <div class="emo-bar-row">
+                                        <span class="emo-label">Excited</span>
+                                        <div class="emo-bar-track">
+                                            <div class="emo-bar-fill emo-excited" style="width:90%"></div>
+                                        </div>
+                                        <span class="emo-pct">90%</span>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <span class="pf-dot"></span>Real-time Feed
+                                </div>
+                            </div>
+
+                            <div class="floating-panel panel-right">
+                                <div class="panel-header">Blockchain Log</div>
+                                <div class="chain-log">
+                                    <div class="chain-entry">
+                                        <span class="chain-hash">0x4a2f...</span>
+                                        <span class="chain-label">Session Init</span>
+                                        <span class="chain-status verified">✓</span>
+                                    </div>
+                                    <div class="chain-entry">
+                                        <span class="chain-hash">0x8c1e...</span>
+                                        <span class="chain-label">Identity Verified</span>
+                                        <span class="chain-status verified">✓</span>
+                                    </div>
+                                    <div class="chain-entry">
+                                        <span class="chain-hash">0x3f9b...</span>
+                                        <span class="chain-label">Key Exchange</span>
+                                        <span class="chain-status verified">✓</span>
+                                    </div>
+                                    <div class="chain-entry chain-live">
+                                        <span class="chain-hash">0x7d5c...</span>
+                                        <span class="chain-label">Data Stream</span>
+                                        <span class="chain-status live">●</span>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <span class="pf-dot pf-green"></span>Cryptographically Secure
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom control bar -->
+                        <div class="control-bar">
+                            <div class="ctrl-left">
+                                <button class="ctrl-btn active" id="micBtn" title="Microphone">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                        <line x1="12" y1="19" x2="12" y2="23" />
+                                        <line x1="8" y1="23" x2="16" y2="23" />
+                                    </svg>
+                                </button>
+                                <button class="ctrl-btn active" id="camBtn" title="Camera">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M23 7l-7 5 7 5V7z" />
+                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                                    </svg>
+                                </button>
+                                <button class="ctrl-btn" id="screenBtn" title="Share Screen">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                                        <path d="M8 21h8M12 17v4" />
+                                    </svg>
+                                </button>
+                                <button class="ctrl-btn" id="vrBtn" title="VR Mode">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="ctrl-leave" id="leaveBtn">Leave Room</button>
+                            <div class="ctrl-right">
+                                <div class="participant-count">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        width="14" height="14">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
+                                    4 Participants
+                                </div>
+                                <div class="net-status">
+                                    <span class="net-bar h-3"></span>
+                                    <span class="net-bar h-5"></span>
+                                    <span class="net-bar h-7"></span>
+                                    <span class="net-bar h-9"></span>
+                                    Excellent
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== THE FUTURE SECTION ========== -->
+    <section id="the-future" class="future-section">
+        <div class="future-bg-glow"></div>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// VISION 2026 → 2030</span>
+                <h2 class="section-title">The <span class="gradient-text">Future</span> We're Building</h2>
+                <p class="section-subtitle">MetaMates is more than a product — it's a research initiative charting the
+                    next decade of human-digital interaction.</p>
+            </div>
+
+            <!-- Vision statement -->
+            <div class="vision-statement reveal">
+                <div class="vs-quote">❝</div>
+                <p class="vs-text">
+                    We believe the boundary between physical and digital presence will dissolve entirely by 2030.
+                    MetaMates is the bridge — built on open standards, powered by AI, secured by blockchain, and
+                    designed for every human being on earth regardless of device or ability.
+                </p>
+                <div class="vs-author">
+                    <div class="vs-dot"></div>
+                    <span>MetaMates Research Team — IEEE 2026</span>
+                </div>
+            </div>
+
+            <!-- Roadmap timeline -->
+            <div class="future-roadmap reveal">
+                <div class="roadmap-track"></div>
+
+                <div class="roadmap-phase" id="phase-1">
+                    <div class="rp-year">2026<span class="rp-q">Q1</span></div>
+                    <div class="rp-dot rp-active">
+                        <div class="rp-dot-inner"></div>
+                    </div>
+                    <div class="rp-card rp-card-active">
+                        <div class="rp-badge">NOW</div>
+                        <h4 class="rp-title">Core Platform Launch</h4>
+                        <p class="rp-desc">Browser-based metaverse with AI avatars, emotion recognition, and
+                            blockchain-secured sessions. Support for up to 50 concurrent users per room.</p>
+                        <ul class="rp-list">
+                            <li>AI Avatar Generation (GAN)</li>
+                            <li>7-Emotion FER System (99.2%)</li>
+                            <li>WebRTC Real-time Comms</li>
+                            <li>DID Blockchain Login</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase" id="phase-2">
+                    <div class="rp-year">2026<span class="rp-q">Q3</span></div>
+                    <div class="rp-dot">
+                        <div class="rp-dot-inner"></div>
+                    </div>
+                    <div class="rp-card">
+                        <div class="rp-badge rp-badge-soon">SOON</div>
+                        <h4 class="rp-title">Expanded Intelligence</h4>
+                        <p class="rp-desc">AI-powered meeting assistant that summarizes discussions, suggests action
+                            items, and detects engagement levels across all participants.</p>
+                        <ul class="rp-list">
+                            <li>LLM Meeting Summarizer</li>
+                            <li>Gesture &amp; Posture Recognition</li>
+                            <li>Multi-language Live Translation</li>
+                            <li>Engagement Scoring Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase" id="phase-3">
+                    <div class="rp-year">2027<span class="rp-q">Q1</span></div>
+                    <div class="rp-dot">
+                        <div class="rp-dot-inner"></div>
+                    </div>
+                    <div class="rp-card">
+                        <div class="rp-badge rp-badge-future">PLANNED</div>
+                        <h4 class="rp-title">Full XR Immersion</h4>
+                        <p class="rp-desc">Native VR/AR applications for all major headsets. Haptic feedback glove
+                            integration, eye-tracking fidelity improvements, and photorealistic rendering pipeline.</p>
+                        <ul class="rp-list">
+                            <li>Native Quest &amp; Vision Pro Apps</li>
+                            <li>Haptic Glove SDK</li>
+                            <li>Eye-tracking Avatar Control</li>
+                            <li>Neural Render Pipeline</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase" id="phase-4">
+                    <div class="rp-year">2028<span class="rp-q">Q2</span></div>
+                    <div class="rp-dot">
+                        <div class="rp-dot-inner"></div>
+                    </div>
+                    <div class="rp-card">
+                        <div class="rp-badge rp-badge-future">RESEARCH</div>
+                        <h4 class="rp-title">Interoperable Metaverse</h4>
+                        <p class="rp-desc">Open metaverse federation protocol enabling MetaMates users to traverse into
+                            any compatible metaverse (Decentraland, Horizon, Omniverse) carrying their identity and
+                            avatar.</p>
+                        <ul class="rp-list">
+                            <li>Open Metaverse Protocol (OMP)</li>
+                            <li>Cross-platform Avatar Portability</li>
+                            <li>Universal DID Federation</li>
+                            <li>DAO Governance Model</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact stats -->
+            <div class="future-impact reveal">
+                <div class="fi-header">Projected Global Impact</div>
+                <div class="fi-grid">
+                    <div class="fi-card">
+                        <div class="fi-icon">🌍</div>
+                        <div class="fi-val">2B+</div>
+                        <div class="fi-title">People Reached</div>
+                        <div class="fi-sub">Democratizing access to immersive collaboration across 195 countries by 2030
+                        </div>
+                    </div>
+                    <div class="fi-card">
+                        <div class="fi-icon">✈️</div>
+                        <div class="fi-val">68%</div>
+                        <div class="fi-title">Travel Reduction</div>
+                        <div class="fi-sub">Estimated reduction in business travel carbon footprint through
+                            virtual-first meetings</div>
+                    </div>
+                    <div class="fi-card">
+                        <div class="fi-icon">♿</div>
+                        <div class="fi-val">100%</div>
+                        <div class="fi-title">Accessibility</div>
+                        <div class="fi-sub">WCAG 3.0 compliant with sign language avatar support and full screen-reader
+                            integration</div>
+                    </div>
+                    <div class="fi-card">
+                        <div class="fi-icon">🎓</div>
+                        <div class="fi-val">500M</div>
+                        <div class="fi-title">Students Empowered</div>
+                        <div class="fi-sub">Free tier designed for educational use — a virtual classroom for every
+                            learner on earth</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research papers / publications -->
+            <div class="future-research reveal">
+                <div class="fr-header">
+                    <h3>Research Publications &amp; Recognitions</h3>
+                    <p>Peer-reviewed work behind the MetaMates platform</p>
+                </div>
+                <div class="fr-grid">
+                    <div class="fr-paper">
+                        <div class="fpr-icon">📄</div>
+                        <div class="fpr-body">
+                            <div class="fpr-journal">IEEE VR 2026</div>
+                            <h4 class="fpr-title">Real-Time Facial Emotion Mapping for Metaverse Avatars Using
+                                Lightweight CNNs</h4>
+                            <p class="fpr-authors">Sharma, P. · Chen, A. · Webb, M. · Kim, Z.</p>
+                        </div>
+                        <div class="fpr-status accepted">Accepted</div>
+                    </div>
+                    <div class="fr-paper">
+                        <div class="fpr-icon">📄</div>
+                        <div class="fpr-body">
+                            <div class="fpr-journal">IEEE Blockchain 2026</div>
+                            <h4 class="fpr-title">Self-Sovereign Identity for Virtual Collaboration Platforms: A
+                                ZK-SNARK Approach</h4>
+                            <p class="fpr-authors">Webb, M. · Sharma, P. · Chen, A.</p>
+                        </div>
+                        <div class="fpr-status review">Under Review</div>
+                    </div>
+                    <div class="fr-paper">
+                        <div class="fpr-icon">📄</div>
+                        <div class="fpr-body">
+                            <div class="fpr-journal">ACM CHI 2026</div>
+                            <h4 class="fpr-title">Emotional Presence in Virtual Environments: Can Avatars Close the
+                                Empathy Gap?</h4>
+                            <p class="fpr-authors">Kim, Z. · Sharma, P. · Chen, A. · Webb, M.</p>
+                        </div>
+                        <div class="fpr-status accepted">Accepted</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TECH STACK BAND ========== -->
+    <section class="tech-band">
+        <div class="tech-band-inner">
+            <span class="tech-label">POWERED BY</span>
+            <div class="tech-pills">
+                <span class="tech-pill">Three.js</span>
+                <span class="tech-pill">TensorFlow.js</span>
+                <span class="tech-pill">WebRTC</span>
+                <span class="tech-pill">Ethereum</span>
+                <span class="tech-pill">WebXR API</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Kubernetes</span>
+                <span class="tech-pill">Solidity</span>
+                <span class="tech-pill">MediaPipe</span>
+                <span class="tech-pill">IPFS</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="tech-pill">Three.js</span>
+                <span class="tech-pill">TensorFlow.js</span>
+                <span class="tech-pill">WebRTC</span>
+                <span class="tech-pill">Ethereum</span>
+                <span class="tech-pill">WebXR API</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Kubernetes</span>
+                <span class="tech-pill">Solidity</span>
+                <span class="tech-pill">MediaPipe</span>
+                <span class="tech-pill">IPFS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">◈</span>
+                        Meta<span class="logo-accent">Mates</span>
+                    </div>
+                    <p class="footer-tagline">Redefining human connection in the digital age through immersive
+                        AI-powered virtual collaboration.</p>
+                    <div class="ieee-badge">
+                        <span class="ieee-icon">◉</span>
+                        IEEE Research Prototype 2026
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Project</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About MetaMates</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#demo">Demo Preview</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Technology</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Avatar Engine</a></li>
+                        <li><a href="#">Emotion AI Module</a></li>
+                        <li><a href="#">Blockchain Layer</a></li>
+                        <li><a href="#">WebXR Integration</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Research Branches</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Computer Vision</a></li>
+                        <li><a href="#">Distributed Systems</a></li>
+                        <li><a href="#">Human-Computer Interaction</a></li>
+                        <li><a href="#">Decentralized Computing</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <span>© 2026 MetaMates Research Project</span>
+                    <span class="footer-sep">·</span>
+                    <span>IEEE Research Prototype</span>
+                    <span class="footer-sep">·</span>
+                    <span>University Innovation Lab</span>
+                </div>
+                <div class="footer-bottom-right">
+                    <span class="footer-status">
+                        <span class="fs-dot"></span>
+                        All Systems Operational
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
