@@ -10,15 +10,15 @@
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x000000, 0);
 
-  const scene  = new THREE.Scene();
+  const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
   camera.position.set(0, 0, 90);
 
   // --- Particle field ---
   const particleCount = 2400;
   const positions = new Float32Array(particleCount * 3);
-  const colors    = new Float32Array(particleCount * 3);
-  const sizes     = new Float32Array(particleCount);
+  const colors = new Float32Array(particleCount * 3);
+  const sizes = new Float32Array(particleCount);
 
   const paletteSrc = [
     new THREE.Color('#00d4ff'),
@@ -29,11 +29,11 @@
 
   for (let i = 0; i < particleCount; i++) {
     const i3 = i * 3;
-    positions[i3]     = (Math.random() - 0.5) * 300;
+    positions[i3] = (Math.random() - 0.5) * 300;
     positions[i3 + 1] = (Math.random() - 0.5) * 220;
     positions[i3 + 2] = (Math.random() - 0.5) * 200;
     const c = paletteSrc[Math.floor(Math.random() * paletteSrc.length)];
-    colors[i3]     = c.r;
+    colors[i3] = c.r;
     colors[i3 + 1] = c.g;
     colors[i3 + 2] = c.b;
     sizes[i] = Math.random() * 2.5 + 0.5;
@@ -41,8 +41,8 @@
 
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
-  geo.setAttribute('size',     new THREE.BufferAttribute(sizes, 1));
+  geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
   const mat = new THREE.PointsMaterial({
     size: 1.2,
@@ -104,7 +104,7 @@
   // Mouse parallax
   let mouseX = 0, mouseY = 0;
   document.addEventListener('mousemove', e => {
-    mouseX = (e.clientX / window.innerWidth  - 0.5) * 2;
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
@@ -131,7 +131,7 @@
 
     // Camera parallax
     camera.position.x += (mouseX * 12 - camera.position.x) * 0.03;
-    camera.position.y += (-mouseY * 8  - camera.position.y) * 0.03;
+    camera.position.y += (-mouseY * 8 - camera.position.y) * 0.03;
     camera.lookAt(scene.position);
 
     renderer.render(scene, camera);
@@ -149,7 +149,7 @@
 (function initNav() {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
+  const navLinks = document.getElementById('navLinks');
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) navbar.classList.add('scrolled');
@@ -162,7 +162,7 @@
 
   // Active link
   const sections = document.querySelectorAll('section[id]');
-  const links    = document.querySelectorAll('.nav-link');
+  const links = document.querySelectorAll('.nav-link');
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (en.isIntersecting) {
@@ -211,44 +211,12 @@
   gsap.registerPlugin(ScrollTrigger);
 
   // Hero entrance
-  gsap.from('.hero-badge',    { opacity: 0, y: 30, duration: 0.8, delay: 0.3, ease: 'power3.out' });
-  gsap.from('.hero-title',    { opacity: 0, y: 50, duration: 1,   delay: 0.5, ease: 'power3.out' });
+  gsap.from('.hero-badge', { opacity: 0, y: 30, duration: 0.8, delay: 0.3, ease: 'power3.out' });
+  gsap.from('.hero-title', { opacity: 0, y: 50, duration: 1, delay: 0.5, ease: 'power3.out' });
   gsap.from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.8, delay: 0.9, ease: 'power3.out' });
-  gsap.from('.hero-buttons',  { opacity: 0, y: 30, duration: 0.8, delay: 1.1, ease: 'power3.out' });
-  gsap.from('.hero-stats',    { opacity: 0, y: 30, duration: 0.8, delay: 1.3, ease: 'power3.out' });
+  gsap.from('.hero-buttons', { opacity: 0, y: 30, duration: 0.8, delay: 1.1, ease: 'power3.out' });
+  gsap.from('.hero-stats', { opacity: 0, y: 30, duration: 0.8, delay: 1.3, ease: 'power3.out' });
   gsap.from('.scroll-indicator', { opacity: 0, duration: 1, delay: 2, ease: 'power3.out' });
-
-  // About cards stagger
-  gsap.from('.glass-card', {
-    scrollTrigger: { trigger: '.about-cards', start: 'top 80%' },
-    opacity: 0, y: 60, stagger: 0.15, duration: 0.8, ease: 'power3.out',
-  });
-
-  // Timeline steps
-  gsap.from('.timeline-step', {
-    scrollTrigger: { trigger: '.timeline-wrapper', start: 'top 75%' },
-    opacity: 0, x: -50, stagger: 0.2, duration: 0.7, ease: 'power3.out',
-  });
-
-  // Features grid
-  gsap.from('.feature-card', {
-    scrollTrigger: { trigger: '.features-grid', start: 'top 80%' },
-    opacity: 0, y: 50, stagger: 0.12, duration: 0.8, ease: 'power3.out',
-  });
-
-  // Demo reveal with 3D tilt
-  gsap.from('.demo-browser', {
-    scrollTrigger: { trigger: '.demo-wrapper', start: 'top 80%' },
-    opacity: 0, y: 60, rotateX: 15, duration: 1.2, ease: 'power3.out',
-  });
-
-  // Section titles
-  gsap.utils.toArray('.section-title').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: { trigger: el, start: 'top 85%' },
-      opacity: 0, y: 30, duration: 0.8, ease: 'power3.out',
-    });
-  });
 
   // Parallax hero content on scroll
   gsap.to('.hero-content', {
@@ -295,7 +263,7 @@
 
 // ---- Control bar interactions ----
 (function initControls() {
-  ['micBtn','camBtn','screenBtn','vrBtn'].forEach(id => {
+  ['micBtn', 'camBtn', 'screenBtn', 'vrBtn'].forEach(id => {
     const btn = document.getElementById(id);
     if (!btn) return;
     btn.addEventListener('click', () => {
@@ -314,7 +282,7 @@
       p.classList.remove('active-speaker');
       const ring = p.querySelector('.speaking-ring');
       const mouth = p.querySelector('.avatar-mouth');
-      if (ring)  ring.remove();
+      if (ring) ring.remove();
       if (mouth) { mouth.className = 'avatar-mouth neutral'; }
     });
 
@@ -338,8 +306,8 @@
   cards.forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width  - 0.5;
-      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
       card.style.transform = `translateY(-8px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg)`;
     });
     card.addEventListener('mouseleave', () => {
@@ -350,8 +318,8 @@
 
 // ---- Random blockchain events ----
 (function initChain() {
-  const hashes = ['0x1a3f','0x9c2d','0xb4e1','0x5f8a','0x2c7b','0xd3e9','0x4f1c','0x8a5d'];
-  const labels = ['Msg Encrypted','Block Confirmed','ZK Proof OK','Sig Verified','Handshake','Data Chunk','Auth Token','State Update'];
+  const hashes = ['0x1a3f', '0x9c2d', '0xb4e1', '0x5f8a', '0x2c7b', '0xd3e9', '0x4f1c', '0x8a5d'];
+  const labels = ['Msg Encrypted', 'Block Confirmed', 'ZK Proof OK', 'Sig Verified', 'Handshake', 'Data Chunk', 'Auth Token', 'State Update'];
   const log = document.querySelector('.chain-log');
   if (!log) return;
   setInterval(() => {
@@ -360,12 +328,12 @@
     const entry = document.createElement('div');
     entry.className = 'chain-entry chain-live';
     entry.innerHTML = `
-      <span class="chain-hash">${hashes[Math.floor(Math.random()*hashes.length)]}...</span>
-      <span class="chain-label">${labels[Math.floor(Math.random()*labels.length)]}</span>
+      <span class="chain-hash">${hashes[Math.floor(Math.random() * hashes.length)]}...</span>
+      <span class="chain-label">${labels[Math.floor(Math.random() * labels.length)]}</span>
       <span class="chain-status live">●</span>
     `;
     log.appendChild(entry);
-    setTimeout(() => { entry.classList.remove('chain-live'); entry.querySelector('.chain-status').className='chain-status verified'; entry.querySelector('.chain-status').textContent='✓'; }, 1200);
+    setTimeout(() => { entry.classList.remove('chain-live'); entry.querySelector('.chain-status').className = 'chain-status verified'; entry.querySelector('.chain-status').textContent = '✓'; }, 1200);
   }, 2500);
 })();
 
